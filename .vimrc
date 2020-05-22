@@ -12,6 +12,10 @@
 "
 " Learn more vim plugin info: https://github.com/yangyangwithgnu/use_vim_as_ide
 
+" Disable old-VI compatible
+set nocompatible
+
+" Plugins
 call plug#begin('~/.vim/plugged')
 " Views
 Plug 'jlanzarotta/bufexplorer'
@@ -54,20 +58,23 @@ endfunc
 set background=light
 colorscheme desert
 
-" Keys Settings
-map <F6> :NERDTreeToggle<CR>
-map <F8> :TagbarToggle<CR>
-map <F10> :call TabIndentLineToggle()<CR>
-
 " Common Settings
 set hlsearch
 set nonumber
+set ruler
+set magic         " Extend pattern for search
+set autoindent    " Copy indent from current line when starting a new line
+set smarttab
+set cindent
+syntax on
 call TabIndentLineToggle()
 set cursorline
 highlight CursorLine cterm=reverse
 " set cursorcolumn
 " set nocursorcolumn
 " highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+set colorcolumn=100
+highlight ColorColumn cterm=NONE ctermbg=NONE ctermfg=green guibg=NONE guifg=NONE
 
 " Enter source code directory, do ctags -R
 set tags=./tags;,tags
@@ -75,6 +82,11 @@ set tags=./tags;,tags
 " Rainbow Parentheses
 " au FileType c,cpp,objc,objcpp call rainbow#load()
 " let g:rainbow_active = 1
+
+" Keys Settings
+map <F6> :NERDTreeToggle<CR>
+map <F8> :TagbarToggle<CR>
+map <F11> :call TabIndentLineToggle()<CR>
 
 " BufExplorer
 let g:bufExplorerDefaultHelp=0                " Do not show default help.
@@ -94,7 +106,7 @@ call g:quickmenu#append('# Hot Keys', '')
 call g:quickmenu#append('F9  - Buf Explorer',    'BufExplorer', '')
 call g:quickmenu#append('F6  - NERDTreeToggle',  'NERDTreeToggle', '')
 call g:quickmenu#append('F8  - TagbarToggle',    'TagbarToggle', '')
-call g:quickmenu#append('F10 - Tab Indent Line', 'call TabIndentLineToggle()', '')
+call g:quickmenu#append('F11 - Tab Indent Line', 'call TabIndentLineToggle()', '')
 call g:quickmenu#append('F12 - QuickMenu',       'call quickmenu#toggle(0)', '')
 call g:quickmenu#append('# Look & feel', '')
 call g:quickmenu#append('Show Number',           'set number', '')
