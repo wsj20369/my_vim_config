@@ -33,14 +33,36 @@ Plug 'mg979/vim-visual-multi'
 Plug 'skywind3000/quickmenu.vim'
 call plug#end()
 
+" Tab Indent Lines
+function! TabIndentLineToggle()
+	if !exists("b:tabindentline")
+		let b:tabindentline = 0
+		set list
+		set lcs=tab:\|\ ,nbsp:%,trail:-
+	endif
+	if b:tabindentline == 1
+		let b:tabindentline = 0
+		set nolist
+	else
+		let b:tabindentline = 1
+		set list
+		set lcs=tab:\|\ ,nbsp:%,trail:-
+	endif
+endfunc
+
+" Colors
 set background=light
 colorscheme desert
 
+" Keys Settings
 map <F6> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
+map <F10> :call TabIndentLineToggle()<CR>
 
+" Common Settings
 set hlsearch
 set nonumber
+call TabIndentLineToggle()
 set cursorline
 highlight CursorLine cterm=reverse
 " set cursorcolumn
@@ -72,6 +94,7 @@ call g:quickmenu#append('# Hot Keys', '')
 call g:quickmenu#append('F9  - Buf Explorer',    'BufExplorer', '')
 call g:quickmenu#append('F6  - NERDTreeToggle',  'NERDTreeToggle', '')
 call g:quickmenu#append('F8  - TagbarToggle',    'TagbarToggle', '')
+call g:quickmenu#append('F10 - Tab Indent Line', 'call TabIndentLineToggle()', '')
 call g:quickmenu#append('F12 - QuickMenu',       'call quickmenu#toggle(0)', '')
 call g:quickmenu#append('# Look & feel', '')
 call g:quickmenu#append('Show Number',           'set number', '')
