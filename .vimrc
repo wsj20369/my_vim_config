@@ -54,6 +54,11 @@ function! TabIndentLineToggle()
 	endif
 endfunc
 
+" Remove Trailing-Blank chars
+function! RemoveTrailingBlanks()
+	%s/[\t ]*$//g
+endfunc
+
 " Colors
 set background=light
 colorscheme desert
@@ -103,24 +108,26 @@ nnoremap <silent> <F9> :BufExplorer<CR>
 let g:quickmenu_options = "LH"  " L = cursorline, H = Cmdline Help
 call g:quickmenu#reset()
 call g:quickmenu#append('# Hot Keys', '')
-call g:quickmenu#append('F9  - Buf Explorer',    'BufExplorer', '')
-call g:quickmenu#append('F6  - NERDTreeToggle',  'NERDTreeToggle', '')
-call g:quickmenu#append('F8  - TagbarToggle',    'TagbarToggle', '')
-call g:quickmenu#append('F11 - Tab Indent Line', 'call TabIndentLineToggle()', '')
-call g:quickmenu#append('F12 - QuickMenu',       'call quickmenu#toggle(0)', '')
+call g:quickmenu#append('F9  - Buf Explorer',       'BufExplorer', '')
+call g:quickmenu#append('F6  - NERDTreeToggle',     'NERDTreeToggle', '')
+call g:quickmenu#append('F8  - TagbarToggle',       'TagbarToggle', '')
+call g:quickmenu#append('F11 - Tab Indent Line',    'call TabIndentLineToggle()', '')
+call g:quickmenu#append('F12 - QuickMenu',          'call quickmenu#toggle(0)', '')
+call g:quickmenu#append('# Programming', '')
+call g:quickmenu#append('Remove Trailing Blanks',   'call RemoveTrailingBlanks()', '')
 call g:quickmenu#append('# Look & feel', '')
-call g:quickmenu#append('Show Number',           'set number', '')
-call g:quickmenu#append('No Number',             'set nonumber', '')
-call g:quickmenu#append('CursorLine Reverse',    'highlight CursorLine cterm=reverse', '')
+call g:quickmenu#append('Show Number',              'set number', '')
+call g:quickmenu#append('No Number',                'set nonumber', '')
+call g:quickmenu#append('CursorLine Reverse',       'highlight CursorLine cterm=reverse', '')
 call g:quickmenu#append('# Git helper', '')
-call g:quickmenu#append('Git Status',            'Gstatus', '')
-call g:quickmenu#append('Git Diff',              'Gvdiff', '')
-call g:quickmenu#append('Git Blame',             'Gblame', '')
+call g:quickmenu#append('Git Status',               'Gstatus', '')
+call g:quickmenu#append('Git Diff',                 'Gvdiff', '')
+call g:quickmenu#append('Git Blame',                'Gblame', '')
 call g:quickmenu#append('# Color Scheme', '')
-call g:quickmenu#append('default',               'colorscheme default', '')
-call g:quickmenu#append('desert',                'colorscheme desert', '')
-call g:quickmenu#append('blue',                  'colorscheme blue', '')
-call g:quickmenu#append('hybrid',                'colorscheme hybrid', '')
-call g:quickmenu#append('molokai',               'colorscheme molokai', '')
+call g:quickmenu#append('default',                  'colorscheme default', '')
+call g:quickmenu#append('desert',                   'colorscheme desert', '')
+call g:quickmenu#append('blue',                     'colorscheme blue', '')
+call g:quickmenu#append('hybrid',                   'colorscheme hybrid', '')
+call g:quickmenu#append('molokai',                  'colorscheme molokai', '')
 noremap <silent><F12> :call quickmenu#toggle(0)<cr>
 
