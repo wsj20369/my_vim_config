@@ -92,10 +92,6 @@ function! CursorCrossMode()
 endfunc
 let g:cursorcrossmode = 0
 
-" Colors
-set background=light
-colorscheme desert
-
 " Common Settings
 syntax enable
 syntax on
@@ -110,12 +106,16 @@ set nowrap                      " Disallow line wrap
 set laststatus=2                " Always has status line
 set wildmenu                    " Enhanced command-line completion, possible matches are shown just above the command line
 set cursorline
-highlight CursorLine cterm=reverse
-" set cursorcolumn
-" set nocursorcolumn
-" highlight CursorColumn cterm=NONE ctermbg=black ctermfg=green guibg=NONE guifg=NONE
+set nocursorcolumn
 set colorcolumn=100
+
+" Colors
+set background=light
+colorscheme desert
+highlight CursorLine cterm=reverse
 highlight ColorColumn cterm=NONE ctermbg=NONE ctermfg=green guibg=NONE guifg=NONE
+highlight Folded cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
+highlight FoldColumn cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
 
 " Enter source code directory, do ctags -R
 set tags=./tags;,tags
