@@ -15,6 +15,13 @@
 " Disable old-VI compatible
 set nocompatible
 
+" Auto apply the configs after changed
+" autocmd BufWritePost $MYVIMRC source $MYVIMRC
+
+" Auto detect filetype
+filetype on
+filetype plugin on
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 " Views
