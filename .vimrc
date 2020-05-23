@@ -39,20 +39,22 @@ call plug#end()
 
 " Tab Indent Lines
 function! TabIndentLineToggle()
-	if !exists("b:tabindentline")
-		let b:tabindentline = 0
+	if !exists("g:tabindentline")
+		let g:tabindentline = 0
 		set list
 		set lcs=tab:\|\ ,nbsp:%,trail:-
 	endif
-	if b:tabindentline == 1
-		let b:tabindentline = 0
+	if g:tabindentline == 1
+		let g:tabindentline = 0
 		set nolist
 	else
-		let b:tabindentline = 1
+		let g:tabindentline = 1
 		set list
 		set lcs=tab:\|\ ,nbsp:%,trail:-
 	endif
 endfunc
+let g:tabindentline = 0
+call TabIndentLineToggle()
 
 " Remove Trailing-Blank chars
 function! RemoveTrailingBlanks()
@@ -90,7 +92,6 @@ set autoindent    " Copy indent from current line when starting a new line
 set smarttab
 set cindent
 syntax on
-call TabIndentLineToggle()
 set cursorline
 highlight CursorLine cterm=reverse
 " set cursorcolumn
