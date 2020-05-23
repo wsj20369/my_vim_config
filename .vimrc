@@ -59,6 +59,24 @@ function! RemoveTrailingBlanks()
 	%s/[\t ]*$//g
 endfunc
 
+" Track cursor in Cross-Mode
+function! CursorCrossMode()
+	if !exists("g:cursorcrossmode")
+		let g:cursorcrossmode = 0
+	endif
+	if g:cursorcrossmode == 1
+		let g:cursorcrossmode = 0
+		set nocursorcolumn
+	else
+		let g:cursorcrossmode = 1
+		set cursorline
+		set cursorcolumn
+		highlight CursorLine cterm=reverse
+		highlight CursorColumn cterm=NONE ctermbg=lightblue ctermfg=NONE guibg=NONE guifg=NONE
+	endif
+endfunc
+let g:cursorcrossmode = 0
+
 " Colors
 set background=light
 colorscheme desert
@@ -119,6 +137,7 @@ call g:quickmenu#append('# Look & feel', '')
 call g:quickmenu#append('Show Number',              'set number', '')
 call g:quickmenu#append('No Number',                'set nonumber', '')
 call g:quickmenu#append('CursorLine Reverse',       'highlight CursorLine cterm=reverse', '')
+call g:quickmenu#append('Cursor Cross',             'call CursorCrossMode()', '')
 call g:quickmenu#append('# Git helper', '')
 call g:quickmenu#append('Git Status',               'Gstatus', '')
 call g:quickmenu#append('Git Diff',                 'Gvdiff', '')
