@@ -123,22 +123,24 @@ set tags=./tags;,tags
 " let g:rainbow_active = 1
 
 " Keys Settings
-map <F6> :NERDTreeToggle<CR>
-map <F8> :TagbarToggle<CR>
-map <F11> :call TabIndentLineToggle()<CR>
+noremap <F6> :NERDTreeToggle<CR>
+noremap <F8> :TagbarToggle<CR>
+noremap <F9> :BufExplorer<CR>
+noremap <F11> :call TabIndentLineToggle()<CR>
+noremap <F12> :call quickmenu#toggle(0)<cr>
 
-nmap <Leader>q :q<CR>
-nmap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>w :w<CR>
 
-nmap <Leader>f :BufExplorer<CR>
-nmap <Leader>d :NERDTreeToggle<CR>
+nnoremap <Leader>f :BufExplorer<CR>
+nnoremap <Leader>d :NERDTreeToggle<CR>
 
-nmap <Leader>\ :call TabIndentLineToggle()<CR>
-nmap <Leader>x :call CursorCrossMode()<CR>
+nnoremap <Leader>\ :call TabIndentLineToggle()<CR>
+nnoremap <Leader>x :call CursorCrossMode()<CR>
 
 " Tags browser
-nmap <Leader>n :tnext<CR>
-nmap <Leader>p :tprevious<CR>
+nnoremap <Leader>n :tnext<CR>
+nnoremap <Leader>p :tprevious<CR>
 
 " Commenter
 let g:NERDSpaceDelims = 1                     " Add spaces after comment delimiters by default
@@ -159,7 +161,6 @@ let g:bufExplorerSplitVertical=1              " Split vertically.
 let g:bufExplorerSplitVertSize = 30           " Split width
 let g:bufExplorerUseCurrentWindow=1           " Open in new window.
 let g:bufExplorerDisableDefaultKeyMapping =0  " Do not disable default key mappings.
-nnoremap <silent> <F9> :BufExplorer<CR>
 
 " Quick Menu
 let g:quickmenu_options = "LH"  " L = cursorline, H = Cmdline Help
@@ -187,5 +188,4 @@ call g:quickmenu#append('desert',                   'colorscheme desert', '')
 call g:quickmenu#append('blue',                     'colorscheme blue', '')
 call g:quickmenu#append('hybrid',                   'colorscheme hybrid', '')
 call g:quickmenu#append('molokai',                  'colorscheme molokai', '')
-noremap <silent><F12> :call quickmenu#toggle(0)<cr>
 
