@@ -11,6 +11,8 @@
 "     ~/.config/nvim/autoload/plug.vim   if you are using neovim
 "
 " Learn more vim plugin info: https://github.com/yangyangwithgnu/use_vim_as_ide
+" Learn VimScript: https://www.w3cschool.cn/vim/nckx1pu0.html
+"
 
 " Disable old-VI compatible
 set nocompatible
