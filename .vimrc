@@ -95,14 +95,18 @@ set background=light
 colorscheme desert
 
 " Common Settings
+syntax enable
+syntax on
 set hlsearch
 set nonumber
 set ruler
-set magic         " Extend pattern for search
-set autoindent    " Copy indent from current line when starting a new line
+set magic                       " Extend pattern for search
+set autoindent                  " Copy indent from current line when starting a new line
 set smarttab
 set cindent
-syntax on
+set nowrap                      " Disallow line wrap
+set laststatus=2                " Always has status line
+set wildmenu                    " Enhanced command-line completion, possible matches are shown just above the command line
 set cursorline
 highlight CursorLine cterm=reverse
 " set cursorcolumn
