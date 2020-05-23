@@ -18,6 +18,9 @@ set nocompatible
 " Auto apply the configs after changed
 " autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
+" Leader key
+let mapleader = ";"
+
 " Auto detect filetype
 filetype on
 filetype plugin on
@@ -118,6 +121,19 @@ set tags=./tags;,tags
 map <F6> :NERDTreeToggle<CR>
 map <F8> :TagbarToggle<CR>
 map <F11> :call TabIndentLineToggle()<CR>
+
+nmap <Leader>q :q<CR>
+nmap <Leader>w :w<CR>
+
+nmap <Leader>f :BufExplorer<CR>
+nmap <Leader>d :NERDTreeToggle<CR>
+
+nmap <Leader>\ :call TabIndentLineToggle()<CR>
+nmap <Leader>x :call CursorCrossMode()<CR>
+
+" Tags browser
+nmap <Leader>n :tnext<CR>
+nmap <Leader>p :tprevious<CR>
 
 " BufExplorer
 let g:bufExplorerDefaultHelp=0                " Do not show default help.
