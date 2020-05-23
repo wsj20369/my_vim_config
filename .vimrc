@@ -31,6 +31,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'jlanzarotta/bufexplorer'
 " Programmer
 Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdcommenter'
 Plug 'majutsushi/tagbar'
 " Plug 'frazrepo/vim-rainbow'
 " Color Schemes
@@ -134,6 +135,16 @@ nmap <Leader>x :call CursorCrossMode()<CR>
 " Tags browser
 nmap <Leader>n :tnext<CR>
 nmap <Leader>p :tprevious<CR>
+
+" Commenter
+let g:NERDSpaceDelims = 1                     " Add spaces after comment delimiters by default
+let g:NERDCompactSexyComs = 1                 " Use compact syntax for prettified multi-line comments
+let g:NERDDefaultAlign = 'left'               " Align line-wise comment delimiters flush left instead of following code indentation
+" Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/*','right': '*/' } }
+let g:NERDCommentEmptyLines = 1               " Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDTrimTrailingWhitespace = 1          " Enable trimming of trailing whitespace when uncommenting
+let g:NERDToggleCheckAllLines = 1             " Enable NERDCommenterToggle to check all selected lines is commented or not
 
 " BufExplorer
 let g:bufExplorerDefaultHelp=0                " Do not show default help.
