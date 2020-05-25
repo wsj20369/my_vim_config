@@ -92,6 +92,16 @@ function! CursorCrossMode()
 endfunc
 let g:cursorcrossmode = 0
 
+" Error highlight if has too many Spaces/Tabs in the Line tail
+function! ErrorHighlightIfTooManySpacesInLineTail(enable)
+	if a:enable == 1
+		highlight TooManySpacesInLineTail ctermbg=red guibg=red
+		match TooManySpacesInLineTail /\v[ \t]+$/
+	else
+		match none
+	endif
+endfunc
+
 " Get current directory
 function! GetPWD()
 	return substitute(getcwd(), "", "", "g")
@@ -160,6 +170,9 @@ nnoremap <Leader>d :NERDTreeToggle<CR>
 
 nnoremap <Leader>\ :call TabIndentLineToggle()<CR>
 nnoremap <Leader>x :call CursorCrossMode()<CR>
+
+nnoremap <Leader>w :call ErrorHighlightIfTooManySpacesInLineTail(1)<CR>
+nnoremap <Leader>W :call ErrorHighlightIfTooManySpacesInLineTail(0)<CR>
 
 " Tags browser
 nnoremap <Leader>n :tnext<CR>
