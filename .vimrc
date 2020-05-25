@@ -92,6 +92,11 @@ function! CursorCrossMode()
 endfunc
 let g:cursorcrossmode = 0
 
+" Add semicolon in the end of line
+function! AddSemicolonInLineTail()
+	execute "normal! mqA;\<esc>`q"
+endfunc
+
 " Error highlight if has too many Spaces/Tabs in the Line tail
 function! ErrorHighlightIfTooManySpacesInLineTail(enable)
 	if a:enable == 1
@@ -177,6 +182,9 @@ nnoremap <Leader>W :call ErrorHighlightIfTooManySpacesInLineTail(0)<CR>
 " Tags browser
 nnoremap <Leader>n :tnext<CR>
 nnoremap <Leader>p :tprevious<CR>
+
+" C code edit
+nnoremap <Leader><Leader>z :call AddSemicolonInLineTail()<CR>
 
 " Status Line
 call UpdateStatusLine()
