@@ -92,6 +92,28 @@ function! CursorCrossMode()
 endfunc
 let g:cursorcrossmode = 0
 
+" Get current directory
+function! GetPWD()
+	return substitute(getcwd(), "", "", "g")
+endfunc
+
+" Change Statue Line
+function! UpdateStatusLine()
+	if !exists("g:statusline_style")
+		let g:statusline_style = 0
+	endif
+	let g:statusline_style += 1
+	set laststatus=2                  " Always has status line;
+	if g:statusline_style == 1
+		set statusline=[%{&fileformat},%{&fileencoding}]%y%w\ >>\ %f%m%r%h\ >>\ %{GetPWD()}\ %=\ %c%V,%l/%L\ [%P]
+	elseif g:statusline_style == 2
+		set statusline=[%{&fileformat},%{&fileencoding}]%y%w\ >>\ %f%m%r%h\ %=\ %c%V,%l/%L\ [%P]\ [%{GetPWD()}]
+	else
+		let g:statusline_style = 0
+		call UpdateStatusLine()
+	endif
+endfunc
+
 " Common Settings
 syntax enable
 syntax on
@@ -103,7 +125,6 @@ set autoindent                  " Copy indent from current line when starting a 
 set smarttab
 set cindent
 set nowrap                      " Disallow line wrap
-set laststatus=2                " Always has status line
 set wildmenu                    " Enhanced command-line completion, possible matches are shown just above the command line
 set cursorline
 set nocursorcolumn
@@ -143,6 +164,11 @@ nnoremap <Leader>x :call CursorCrossMode()<CR>
 " Tags browser
 nnoremap <Leader>n :tnext<CR>
 nnoremap <Leader>p :tprevious<CR>
+
+" Status Line
+call UpdateStatusLine()
+nnoremap <Leader><Leader>s :call UpdateStatusLine()<CR>
+nnoremap <Leader><Leader>S :set laststatus=0<CR>
 
 " Commenter
 let g:NERDSpaceDelims = 1                     " Add spaces after comment delimiters by default
