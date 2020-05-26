@@ -97,6 +97,25 @@ function! AddSemicolonInLineTail()
 	execute "normal! mqA;\<esc>`q"
 endfunc
 
+" Grep Operator, <Leader>giw to grep the current word
+" Copied from: https://www.w3cschool.cn/vim/tfogmozt.html
+function! GrepOperator(type)
+	let l:saved_unnamed_register = @@
+
+	if a:type ==# 'v'
+		execute "normal! `<v`>y"
+	elseif a:type ==# 'char'
+		execute "normal! `[v`]y"
+	else
+		return
+	endif
+
+	silent execute "grep! -R " . shellescape(@@) . " ."
+	silent copen 16
+
+	let @@ = l:saved_unnamed_register
+endfunc
+
 " Error highlight if has too many Spaces/Tabs in the Line tail
 function! ErrorHighlightIfTooManySpacesInLineTail(enable)
 	if a:enable == 1
@@ -185,6 +204,11 @@ nnoremap <Leader>p :tprevious<CR>
 
 " C code edit
 nnoremap <Leader><Leader>z :call AddSemicolonInLineTail()<CR>
+
+" Grep...
+nnoremap <Leader>g :set operatorfunc=GrepOperator<CR>g@
+vnoremap <Leader>g :<c-u>call GrepOperator(visualmode())<CR>
+
 
 " Status Line
 call UpdateStatusLine()
