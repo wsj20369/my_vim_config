@@ -133,19 +133,28 @@ endfunc
 
 " Change Statue Line
 function! UpdateStatusLine()
-	if !exists("g:statusline_style")
+	let l:styles = []
+	call add(l:styles, '(^_^) %f%m%r%h %= %c%V,%l/%L [%P]')
+	call add(l:styles, 'Hello! %f%m%r%h %= %c%V,%l/%L [%P]')
+	call add(l:styles, '[%{&fileformat},%{&fileencoding}]%y%w >> %f%m%r%h >> %{GetPWD()} %= %c%V,%l/%L [%P]')
+	call add(l:styles, '[%{&fileformat},%{&fileencoding}]%y%w >> %f%m%r%h %= %c%V,%l/%L [%P] [%{GetPWD()}]')
+
+	if !exists("g:statusline_style") || !exists("g:statusline_mode")
 		let g:statusline_style = 0
+		let g:statusline_mode = 0
 	endif
-	let g:statusline_style += 1
-	set laststatus=2                  " Always has status line;
-	if g:statusline_style == 1
-		set statusline=[%{&fileformat},%{&fileencoding}]%y%w\ >>\ %f%m%r%h\ >>\ %{GetPWD()}\ %=\ %c%V,%l/%L\ [%P]
-	elseif g:statusline_style == 2
-		set statusline=[%{&fileformat},%{&fileencoding}]%y%w\ >>\ %f%m%r%h\ %=\ %c%V,%l/%L\ [%P]\ [%{GetPWD()}]
-	else
-		let g:statusline_style = 0
-		call UpdateStatusLine()
+
+	let g:statusline_mode += 1
+	if g:statusline_mode > 2
+		let g:statusline_mode = 1
+		let g:statusline_style += 1
+		if g:statusline_style >= len(l:styles)
+			let g:statusline_style = 0
+		endif
 	endif
+
+	let &laststatus = g:statusline_mode
+	let &statusline = l:styles[g:statusline_style]
 endfunc
 
 " Common Settings
