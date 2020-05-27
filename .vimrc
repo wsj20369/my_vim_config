@@ -96,7 +96,7 @@ function! CursorCrossMode(enable)
 		let g:cursorcrossmode = 1
 		set cursorline
 		set cursorcolumn
-		highlight CursorLine cterm=reverse
+		highlight CursorLine cterm=NONE ctermbg=lightblue ctermfg=NONE guibg=NONE guifg=NONE
 		highlight CursorColumn cterm=NONE ctermbg=lightblue ctermfg=NONE guibg=NONE guifg=NONE
 	endif
 endfunc
@@ -186,7 +186,7 @@ set background=light
 colorscheme desert
 
 call CursorCrossMode(1)
-highlight CursorLine cterm=reverse
+highlight CursorLine cterm=NONE ctermbg=lightblue ctermfg=NONE guibg=NONE guifg=NONE
 highlight ColorColumn cterm=NONE ctermbg=NONE ctermfg=green guibg=NONE guifg=NONE
 highlight Folded cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
 highlight FoldColumn cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
