@@ -75,11 +75,21 @@ function! RemoveTrailingBlanks()
 endfunc
 
 " Track cursor in Cross-Mode
-function! CursorCrossMode()
-	if !exists("g:cursorcrossmode")
-		let g:cursorcrossmode = 0
+function! CursorCrossMode(enable)
+	let l:en = a:enable
+
+	if l:en == 2
+		if !exists("g:cursorcrossmode")
+			let g:cursorcrossmode = 0
+		endif
+		if g:cursorcrossmode == 1
+			let l:en = 0
+		else
+			let l:en = 1
+		endif
 	endif
-	if g:cursorcrossmode == 1
+
+	if l:en == 0
 		let g:cursorcrossmode = 0
 		set nocursorcolumn
 	else
@@ -90,7 +100,6 @@ function! CursorCrossMode()
 		highlight CursorColumn cterm=NONE ctermbg=lightblue ctermfg=NONE guibg=NONE guifg=NONE
 	endif
 endfunc
-let g:cursorcrossmode = 0
 
 " Add semicolon in the end of line
 function! AddSemicolonInLineTail()
@@ -169,13 +178,13 @@ set smarttab
 set cindent
 set nowrap                      " Disallow line wrap
 set wildmenu                    " Enhanced command-line completion, possible matches are shown just above the command line
-set cursorline
-set nocursorcolumn
 set colorcolumn=100
 
 " Colors
 set background=light
 colorscheme desert
+
+call CursorCrossMode(1)
 highlight CursorLine cterm=reverse
 highlight ColorColumn cterm=NONE ctermbg=NONE ctermfg=green guibg=NONE guifg=NONE
 highlight Folded cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
@@ -202,7 +211,7 @@ nnoremap <Leader>f :BufExplorer<CR>
 nnoremap <Leader>d :NERDTreeToggle<CR>
 
 nnoremap <Leader>\ :call TabIndentLineToggle()<CR>
-nnoremap <Leader>x :call CursorCrossMode()<CR>
+nnoremap <Leader>x :call CursorCrossMode(2)<CR>
 
 nnoremap <Leader>w :call ErrorHighlightIfTooManySpacesInLineTail(1)<CR>
 nnoremap <Leader>W :call ErrorHighlightIfTooManySpacesInLineTail(0)<CR>
@@ -259,7 +268,7 @@ call g:quickmenu#append('# Look & feel', '')
 call g:quickmenu#append('Show Number',              'set number', '')
 call g:quickmenu#append('No Number',                'set nonumber', '')
 call g:quickmenu#append('CursorLine Reverse',       'highlight CursorLine cterm=reverse', '')
-call g:quickmenu#append('Cursor Cross',             'call CursorCrossMode()', '')
+call g:quickmenu#append('Cursor Cross',             'call CursorCrossMode(2)', '')
 call g:quickmenu#append('# Git helper', '')
 call g:quickmenu#append('Git Status',               'Gstatus', '')
 call g:quickmenu#append('Git Diff',                 'Gvdiff', '')
