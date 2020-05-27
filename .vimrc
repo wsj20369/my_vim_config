@@ -198,9 +198,7 @@ set tags=./tags;,tags
 " let g:rainbow_active = 1
 
 " Keys Settings
-noremap <F6> :NERDTreeToggle<CR>
 noremap <F8> :TagbarToggle<CR>
-noremap <F9> :BufExplorer<CR>
 noremap <F11> :call TabIndentLineToggle()<CR>
 noremap <F12> :call quickmenu#toggle(0)<cr>
 
@@ -257,11 +255,11 @@ let g:bufExplorerDisableDefaultKeyMapping =0  " Do not disable default key mappi
 let g:quickmenu_options = "LH"  " L = cursorline, H = Cmdline Help
 call g:quickmenu#reset()
 call g:quickmenu#append('# Hot Keys', '')
-call g:quickmenu#append('F9  - Buf Explorer',       'BufExplorer', '')
-call g:quickmenu#append('F6  - NERDTreeToggle',     'NERDTreeToggle', '')
-call g:quickmenu#append('F8  - TagbarToggle',       'TagbarToggle', '')
-call g:quickmenu#append('F11 - Tab Indent Line',    'call TabIndentLineToggle()', '')
-call g:quickmenu#append('F12 - QuickMenu',          'call quickmenu#toggle(0)', '')
+call g:quickmenu#append('<L>f - Buf Explorer',      'BufExplorer', '')
+call g:quickmenu#append('<L>d - NERDTreeToggle',    'NERDTreeToggle', '')
+call g:quickmenu#append('F8   - TagbarToggle',      'TagbarToggle', '')
+call g:quickmenu#append('F11  - Tab Indent Line',   'call TabIndentLineToggle()', '')
+call g:quickmenu#append('F12  - QuickMenu',         'call quickmenu#toggle(0)', '')
 call g:quickmenu#append('# Programming', '')
 call g:quickmenu#append('Remove Trailing Blanks',   'call RemoveTrailingBlanks()', '')
 call g:quickmenu#append('# Look & feel', '')
