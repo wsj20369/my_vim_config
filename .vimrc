@@ -170,6 +170,7 @@ endfunc
 syntax enable
 syntax on
 set hlsearch
+set incsearch
 set nonumber
 set ruler
 set magic                       " Extend pattern for search
