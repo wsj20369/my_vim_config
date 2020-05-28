@@ -212,8 +212,8 @@ nnoremap <Leader>d :NERDTreeToggle<CR>
 nnoremap <Leader>\ :call TabIndentLineToggle()<CR>
 nnoremap <Leader>x :call CursorCrossMode(2)<CR>
 
-nnoremap <Leader>w :call ErrorHighlightIfTooManySpacesInLineTail(1)<CR>
-nnoremap <Leader>W :call ErrorHighlightIfTooManySpacesInLineTail(0)<CR>
+nnoremap <Leader><Leader>w :call ErrorHighlightIfTooManySpacesInLineTail(1)<CR>
+nnoremap <Leader><Leader>W :call ErrorHighlightIfTooManySpacesInLineTail(0)<CR>
 
 " Tags browser
 nnoremap <Leader>n :tnext<CR>
