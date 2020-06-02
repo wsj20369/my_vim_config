@@ -96,8 +96,8 @@ function! CursorCrossMode(enable)
 		let g:cursorcrossmode = 1
 		set cursorline
 		set cursorcolumn
-		highlight CursorLine cterm=NONE ctermbg=lightblue ctermfg=NONE guibg=NONE guifg=NONE
-		highlight CursorColumn cterm=NONE ctermbg=lightblue ctermfg=NONE guibg=NONE guifg=NONE
+		highlight CursorLine cterm=NONE ctermbg=blue ctermfg=NONE guibg=blue guifg=NONE
+		highlight CursorColumn cterm=NONE ctermbg=blue ctermfg=NONE guibg=blue guifg=NONE
 	endif
 endfunc
 
@@ -186,7 +186,7 @@ set background=light
 colorscheme desert
 
 call CursorCrossMode(1)
-highlight CursorLine cterm=NONE ctermbg=lightblue ctermfg=NONE guibg=NONE guifg=NONE
+highlight CursorLine cterm=NONE ctermbg=blue ctermfg=NONE guibg=blue guifg=NONE
 highlight ColorColumn cterm=NONE ctermbg=NONE ctermfg=green guibg=NONE guifg=NONE
 highlight Folded cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
 highlight FoldColumn cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
@@ -226,11 +226,56 @@ nnoremap <Leader><Leader>z :call AddSemicolonInLineTail()<CR>
 nnoremap <Leader>g :set operatorfunc=GrepOperator<CR>g@
 vnoremap <Leader>g :<c-u>call GrepOperator(visualmode())<CR>
 
-
 " Status Line
 call UpdateStatusLine()
 nnoremap <Leader><Leader>s :call UpdateStatusLine()<CR>
 nnoremap <Leader><Leader>S :set laststatus=0<CR>
+
+" Gvim: Toggle Menu and Toolbar
+set guioptions-=m
+set guioptions-=T
+noremap <silent> <F2> :if &guioptions =~# 'T' <Bar>
+			\set guioptions-=T <Bar>
+			\set guioptions-=m <bar>
+			\else <Bar>
+			\set guioptions+=T <Bar>
+			\set guioptions+=m <Bar>
+			\endif<CR>
+
+" Gvim: font
+set guifont=Consolas:h11:cANSI:qDRAFT
+
+" Gvim: window maximize
+autocmd GUIEnter * simalt ~x
+
+" Gvim: full screen
+if has('gui_running') && has("win32") && has('libcall')
+	let g:MyVimLib = $VIMRUNTIME.'/gvimfullscreen.dll'
+	function ToggleFullScreen()
+		call libcallnr(g:MyVimLib, "ToggleFullScreen", 0)
+	endfunc
+
+	" Alt+Enter/F11 to toggle full screen
+	noremap <A-Enter> <Esc>:call ToggleFullScreen()<CR>
+	noremap <silent> <F11> :call ToggleFullScreen()<CR>
+
+	let g:VimAlpha = 240
+	function! SetAlpha(alpha)
+		let g:VimAlpha = g:VimAlpha + a:alpha
+		if g:VimAlpha < 180
+			let g:VimAlpha = 180
+		endif
+		if g:VimAlpha > 255
+			let g:VimAlpha = 255
+		endif
+		call libcall(g:MyVimLib, 'SetAlpha', g:VimAlpha)
+	endfunc
+
+	" <Leader><Leader>y
+	nnoremap <silent> <Leader><Leader>y <Esc>:call SetAlpha(3)<CR>
+	" <Leader><Leader>t
+	nnoremap <silent> <Leader><Leader>t <Esc>:call SetAlpha(-3)<CR>
+endif
 
 " Commenter
 let g:NERDSpaceDelims = 1                     " Add spaces after comment delimiters by default
