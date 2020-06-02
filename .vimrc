@@ -18,7 +18,7 @@
 set nocompatible
 
 " Auto apply the configs after changed
-" autocmd BufWritePost $MYVIMRC source $MYVIMRC
+autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " Leader key
 let mapleader = ";"
