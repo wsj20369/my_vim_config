@@ -200,13 +200,12 @@ set tags=./tags;,tags
 
 " Keys Settings
 noremap <F8> :TagbarToggle<CR>
-noremap <F11> :call TabIndentLineToggle()<CR>
 noremap <F12> :call quickmenu#toggle(0)<cr>
 
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
 
-nnoremap <Leader>f :BufExplorer<CR>
+nnoremap <Leader>f :ToggleBufExplorer<CR>
 nnoremap <Leader>d :NERDTreeToggle<CR>
 
 nnoremap <Leader>\ :call TabIndentLineToggle()<CR>
@@ -303,8 +302,8 @@ call g:quickmenu#reset()
 call g:quickmenu#append('# Hot Keys', '')
 call g:quickmenu#append('<L>f - Buf Explorer',      'BufExplorer', '')
 call g:quickmenu#append('<L>d - NERDTreeToggle',    'NERDTreeToggle', '')
+call g:quickmenu#append('<L>\ - Tab Indent Line',   'call TabIndentLineToggle()', '')
 call g:quickmenu#append('F8   - TagbarToggle',      'TagbarToggle', '')
-call g:quickmenu#append('F11  - Tab Indent Line',   'call TabIndentLineToggle()', '')
 call g:quickmenu#append('F12  - QuickMenu',         'call quickmenu#toggle(0)', '')
 call g:quickmenu#append('# Programming', '')
 call g:quickmenu#append('Remove Trailing Blanks',   'call RemoveTrailingBlanks()', '')
