@@ -181,7 +181,9 @@ syntax enable
 syntax on
 set hlsearch
 set incsearch
-set nonumber
+" set nonumber
+set number
+set relativenumber
 set ruler
 set magic                       " Extend pattern for search
 set autoindent                  " Copy indent from current line when starting a new line
