@@ -166,6 +166,16 @@ function! UpdateStatusLine()
 	let &statusline = l:styles[g:statusline_style]
 endfunc
 
+" Make project
+function! MakeCurrentProject(clean_build)
+	if a:clean_build ==# 1
+		make clean
+	endif
+	make
+endfunc
+noremap <silent> <Leader>mm :call MakeCurrentProject(0)<CR>
+noremap <silent> <Leader>mn :call MakeCurrentProject(1)<CR>
+
 " Common Settings
 syntax enable
 syntax on
