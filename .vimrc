@@ -1,4 +1,7 @@
 " Vim configs for shujun (wsj20369@foxmail.com)
+"
+" Github: https://github.com/wsj20369/my_vim_config.git
+" Gitee:  https://gitee.com/shujun20369/my_vim_config.git
 
 " Below configs should be placed in
 "   ~/.vimrc                  for vim
