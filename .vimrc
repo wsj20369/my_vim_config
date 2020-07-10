@@ -48,6 +48,10 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'mg979/vim-visual-multi'
 " Plug 'powerline/powerline'
 Plug 'skywind3000/quickmenu.vim'
+" Org mode
+Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-speeddating'
+Plug 'mattn/calendar-vim'
 call plug#end()
 
 " Tab Indent Lines
@@ -203,6 +207,9 @@ highlight FoldColumn cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
 
 " Enter source code directory, do ctags -R
 set tags=./tags;,tags
+
+" Org mode
+let g:org_agenda_files=['~/org/index.org']
 
 " Rainbow Parentheses
 " au FileType c,cpp,objc,objcpp call rainbow#load()
