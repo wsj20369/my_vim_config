@@ -144,9 +144,7 @@ endfunc
 function! UpdateStatusLine()
 	let l:styles = []
 	call add(l:styles, '(^_^) %f%m%r%h %= %c%V,%l/%L [%P]')
-	call add(l:styles, 'Hello! %f%m%r%h %= %c%V,%l/%L [%P]')
-	call add(l:styles, '[%{&fileformat},%{&fileencoding}]%y%w >> %f%m%r%h >> %{GetPWD()} %= %c%V,%l/%L [%P]')
-	call add(l:styles, '[%{&fileformat},%{&fileencoding}]%y%w >> %f%m%r%h %= %c%V,%l/%L [%P] [%{GetPWD()}]')
+	call add(l:styles, '(^_^) %f%m%r%h >> %{GetPWD()} %= %c%V,%l/%L [%P]')
 
 	if !exists("g:statusline_style") || !exists("g:statusline_mode")
 		let g:statusline_style = 0
