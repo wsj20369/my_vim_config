@@ -10,6 +10,22 @@
 "     ~/.vim/autoload/plug.vim           if you are using vim
 "     ~/.config/nvim/autoload/plug.vim   if you are using neovim
 "
+" How to install "YouComleteMe":
+"  1) Use normal method...
+"    $ cd ~/.vim/plugged
+"    $ git clone https://github.com/ycm-core/YouCompleteMe.git
+"    $ sudo apt install build-essential cmake python3-dev
+"    $ sudo apt install node.js golang xbuilder
+"    $ cd YouCompleteMe
+"    $ cd third_party
+"    $ git submodule update --init --recursive
+"    $ # python3 install.py --all           [ Failed ]
+"    $ python3 install.py                   [ Support C only ]
+"  2) Use the cached YouCompleteMe.tar.gz   [ About 300MB, too big to upload to Github ]
+"    Extract the YouCompleteMe.tar.gz to ~/.vim/plugged/
+"     Or
+"    Extract the YouCompleteMe.tar.gz, and make a symlink '~/.vim/plugged/YouCompleteMe' to YouCompleteMe/
+"
 " Learn more vim plugin info: https://github.com/yangyangwithgnu/use_vim_as_ide
 " Learn VimScript: https://www.w3cschool.cn/vim/nckx1pu0.html
 "
@@ -52,6 +68,8 @@ Plug 'skywind3000/quickmenu.vim'
 Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
 Plug 'mattn/calendar-vim'
+" YouCompleteMe
+Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 " Tab Indent Lines
@@ -183,6 +201,7 @@ syntax enable
 syntax on
 set hlsearch
 set incsearch
+set fileencoding=utf-8
 " set nonumber
 set number
 set relativenumber
