@@ -22,9 +22,10 @@
 "    $ cd YouCompleteMe
 "    $ cd third_party
 "    $ git submodule update --init --recursive
-"    $ # python3 install.py --all           [ Failed ]
-"    $ python3 install.py                   [ Support C only ]
-"  2) Use the cached YouCompleteMe.tar.gz   [ About 300MB, too big to upload to Github ]
+"    $ cd ..
+"    $ # python3 install.py --all                  [ Failed ]
+"    $ python3 install.py --clangd-completer       [ Support C only ]
+"  2) Use the cached YouCompleteMe.tar.gz          [ About 300MB, too big to upload to Github ]
 "    Extract the YouCompleteMe.tar.gz to ~/.vim/plugged/
 "     Or
 "    Extract the YouCompleteMe.tar.gz, and make a symlink '~/.vim/plugged/YouCompleteMe' to YouCompleteMe/
@@ -45,6 +46,14 @@ let mapleader = ";"
 " Auto detect filetype
 filetype on
 filetype plugin on
+
+" Vim plugin configs
+let s:has_YouCompleteMe = 0
+let s:has_OrgMode = 0
+if has("python3")
+	let s:has_YouCompleteMe = 1
+	let s:has_OrgMode = 1
+endif
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -68,11 +77,15 @@ Plug 'mg979/vim-visual-multi'
 " Plug 'powerline/powerline'
 Plug 'skywind3000/quickmenu.vim'
 " Org mode
-Plug 'jceb/vim-orgmode'
-Plug 'tpope/vim-speeddating'
-Plug 'mattn/calendar-vim'
+if s:has_OrgMode ==# 1
+	Plug 'jceb/vim-orgmode'
+	Plug 'tpope/vim-speeddating'
+	Plug 'mattn/calendar-vim'
+endif
 " YouCompleteMe
-Plug 'ycm-core/YouCompleteMe'
+if s:has_YouCompleteMe ==# 1
+	Plug 'ycm-core/YouCompleteMe'
+endif
 call plug#end()
 
 " Tab Indent Lines
@@ -204,6 +217,7 @@ syntax enable
 syntax on
 set hlsearch
 set incsearch
+set encoding=utf-8
 set fileencoding=utf-8
 " set nonumber
 set number
@@ -231,7 +245,15 @@ highlight FoldColumn cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
 set tags=./tags;,tags
 
 " Org mode
-let g:org_agenda_files=['~/org/index.org']
+if s:has_OrgMode ==# 1
+	let g:org_agenda_files=['~/org/index.org']
+endif
+
+" YouCompleteMe
+if s:has_YouCompleteMe ==# 1
+	let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+	let g:ycm_confirm_extra_conf = 0
+endif
 
 " Rainbow Parentheses
 " au FileType c,cpp,objc,objcpp call rainbow#load()
