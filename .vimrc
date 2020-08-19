@@ -41,7 +41,7 @@ set nocompatible
 autocmd BufWritePost $MYVIMRC source $MYVIMRC
 
 " Leader key
-let mapleader = ";"
+let g:mapleader = ";"
 
 " Auto detect filetype
 filetype on
@@ -383,4 +383,22 @@ call g:quickmenu#append('desert',                   'colorscheme desert', '')
 call g:quickmenu#append('blue',                     'colorscheme blue', '')
 call g:quickmenu#append('hybrid',                   'colorscheme hybrid', '')
 call g:quickmenu#append('molokai',                  'colorscheme molokai', '')
+
+" Which Key
+set timeout timeoutlen=500
+let g:which_key_map = {}
+
+let g:which_key_map.m = {
+      \ 'name' : '+Make project',
+      \ 'm' : ['MakeCurrentProject(0)', 'build project'],
+      \ 'n' : ['MakeCurrentProject(1)', 'rebuild prject'],
+      \ }
+
+let g:which_key_map[';'] = {
+      \ 'name' : '+More Keys',
+      \ }
+
+call which_key#register(';', "g:which_key_map")
+nnoremap <silent> <leader> :<c-u>WhichKey ';'<CR>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual ';'<CR>
 
