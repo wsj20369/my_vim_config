@@ -86,6 +86,8 @@ endif
 if s:has_YouCompleteMe ==# 1
 	Plug 'ycm-core/YouCompleteMe'
 endif
+" Youdao translater
+Plug 'ianva/vim-youdao-translater'
 call plug#end()
 
 " Tab Indent Lines
@@ -413,6 +415,13 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" Youdao translater
+vnoremap <silent> <C-c>y :<C-u>Ydv<CR>
+nnoremap <silent> <C-c>y :<C-u>Ydc<CR>
+vnoremap <silent> <leader>yy :<C-u>Ydv<CR>
+nnoremap <silent> <leader>yy :<C-u>Ydc<CR>
+noremap <leader>yd :<C-u>Yde<CR>
 
 " Which Key
 set timeout timeoutlen=500
