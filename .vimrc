@@ -245,6 +245,7 @@ highlight FoldColumn cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
 
 " Enter source code directory, do ctags -R
 set tags=./tags;,tags
+map <c-]> g<c-]>
 
 " Org mode
 if s:has_OrgMode ==# 1
