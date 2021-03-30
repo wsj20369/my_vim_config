@@ -131,6 +131,7 @@ function! CursorCrossMode(enable)
 
 	if l:en == 0
 		let g:cursorcrossmode = 0
+		set cursorline
 		set nocursorcolumn
 	else
 		let g:cursorcrossmode = 1
@@ -237,7 +238,7 @@ set colorcolumn=100
 set background=light
 colorscheme desert
 
-call CursorCrossMode(1)
+call CursorCrossMode(0)
 highlight CursorLine cterm=NONE ctermbg=blue ctermfg=NONE guibg=blue guifg=NONE
 highlight ColorColumn cterm=NONE ctermbg=NONE ctermfg=green guibg=NONE guifg=NONE
 highlight Folded cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
