@@ -244,14 +244,14 @@ set cindent
 set nowrap                      " Disallow line wrap
 set wildmenu                    " Enhanced command-line completion, possible matches are shown just above the command line
 
+" Colors
+set background=light
+colorscheme desert
+
 " For Linux kernel code style
 " Disable it by set it to 0 if you hate the red column line
 set colorcolumn=80
 highlight ColorColumn cterm=NONE ctermbg=red ctermfg=NONE guibg=red guifg=NONE
-
-" Colors
-set background=light
-colorscheme desert
 
 call CursorCrossMode(0)
 highlight CursorLine cterm=NONE ctermbg=blue ctermfg=NONE guibg=blue guifg=NONE
