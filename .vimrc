@@ -284,8 +284,8 @@ if has("cscope")
 	nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 	nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-	" ;cc to find who is calling me
-	nmap <Leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
+	" ;x to find who is calling me
+	nmap <Leader>x :cs find c <C-R>=expand("<cword>")<CR><CR>
 endif
 
 " Org mode
@@ -314,7 +314,6 @@ nnoremap <Leader>f :ToggleBufExplorer<CR>
 nnoremap <Leader>d :NERDTreeToggle<CR>
 
 nnoremap <Leader>\ :call TabIndentLineToggle()<CR>
-nnoremap <Leader>x :call CursorCrossMode(2)<CR>
 
 nnoremap <Leader><Leader>w :call ErrorHighlightIfTooManySpacesInLineTail(1)<CR>
 nnoremap <Leader><Leader>W :call ErrorHighlightIfTooManySpacesInLineTail(0)<CR>
