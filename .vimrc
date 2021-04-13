@@ -13,6 +13,17 @@
 "     ~/.vim/autoload/plug.vim           if you are using vim
 "     ~/.config/nvim/autoload/plug.vim   if you are using neovim
 "
+" Install for Ctags:
+"   sudo apt-get install exuberant-ctags
+"
+" Install for Linux/C code reading
+"   Cscope: Install:
+"     sudo apt install cscope
+"   Cscope: Generate database in your project:
+"     find . -type f > cscope.files # If you need files other than .c/.h/.l/.y
+"     cscope -Rbq     # For userspace programs
+"     cscope -Rbqk    # For Linux kernel
+"
 " How to install "YouComleteMe":
 "  1) Use normal method...
 "    $ cd ~/.vim/plugged
@@ -250,6 +261,32 @@ highlight FoldColumn cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
 " Enter source code directory, do ctags -R
 set tags=./tags;,tags
 map <c-]> g<c-]>
+
+" Cscope configs
+" sudo apt install cscope
+" cscope -Rbq     # For userspace programs
+" cscope -Rbqk    # For Linux kernel
+if has("cscope")
+	set cst         " Use cscope via C-]
+	set csto=0      " search: first try cscope, then try ctag
+	set nocsverb    " cscopeverbose
+	if filereadable("cscope.out")
+		cs add cscope.out
+	endif
+	set csverb      " cscopeverbose
+
+	nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+	nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+	nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+	nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+	nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+	nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+	nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+	nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
+	" ;cc to find who is calling me
+	nmap <Leader>cc :cs find c <C-R>=expand("<cword>")<CR><CR>
+endif
 
 " Org mode
 if s:has_OrgMode ==# 1
