@@ -160,7 +160,7 @@ endfunc
 
 " Grep Operator, <Leader>giw to grep the current word
 " Copied from: https://www.w3cschool.cn/vim/tfogmozt.html
-function! GrepOperator(type)
+function! s:GrepOperator(type)
 	let l:saved_unnamed_register = @@
 
 	if a:type ==# 'v'
@@ -327,8 +327,8 @@ nnoremap <Leader>p :tprevious<CR>
 nnoremap <Leader><Leader>z :call AddSemicolonInLineTail()<CR>
 
 " Grep...
-nnoremap <Leader>g :set operatorfunc=GrepOperator<CR>g@
-vnoremap <Leader>g :<c-u>call GrepOperator(visualmode())<CR>
+nnoremap <Leader>g :set operatorfunc=<SID>GrepOperator<CR>g@
+vnoremap <Leader>g :<c-u>call <SID>GrepOperator(visualmode())<CR>
 
 " Status Line
 call UpdateStatusLine()
