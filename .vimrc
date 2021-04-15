@@ -290,8 +290,6 @@ if has("cscope")
 	" ;a to find where the symbol is used,
 	"    for both function and variable
 	nnoremap <Leader>a :cs find s <C-R>=expand("<cword>")<CR><CR>
-	" ^] to find the definition
-	nnoremap <c-]> :cs find g <C-R>=expand("<cword>")<CR><CR>
 	" ;= to find assignments to the symbol
 	nnoremap <Leader>= :cs find a <C-R>=expand("<cword>")<CR><CR>
 endif
