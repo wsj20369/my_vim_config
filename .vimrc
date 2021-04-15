@@ -262,7 +262,7 @@ highlight FoldColumn cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
 set tags=./tags;,tags
 map <c-]> g<c-]>
 
-" Cscope configs
+" Cscope - Good way to read C code, especially Linux kernel.
 " sudo apt install cscope
 " cscope -Rbq     # For userspace programs
 " cscope -Rbqk    # For Linux kernel
@@ -275,17 +275,25 @@ if has("cscope")
 	endif
 	set csverb      " cscopeverbose
 
-	nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
-	nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
-	nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-	nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+	nnoremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+	nnoremap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+	nnoremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-	" ;x to find who is calling me
-	nmap <Leader>x :cs find c <C-R>=expand("<cword>")<CR><CR>
+	" ;x to find who is calling me, only for function
+	nnoremap <Leader>x :cs find c <C-R>=expand("<cword>")<CR><CR>
+	" ;a to find where the symbol is used,
+	"    for both function and variable
+	nnoremap <Leader>a :cs find s <C-R>=expand("<cword>")<CR><CR>
+	" ^] to find the definition
+	nnoremap <c-]> :cs find g <C-R>=expand("<cword>")<CR><CR>
+	" ;= to find assignments to the symbol
+	nnoremap <Leader>= :cs find a <C-R>=expand("<cword>")<CR><CR>
 endif
 
 " Org mode
