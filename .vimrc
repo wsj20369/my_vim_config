@@ -272,6 +272,12 @@ if has("cscope")
 	set nocsverb    " cscopeverbose
 	if filereadable("cscope.out")
 		cs add cscope.out
+	else
+		let cscope_file = findfile("cscope.out", ".;")
+		let cscope_pre = matchstr(cscope_file, ".*/")
+		if !empty(cscope_file) && filereadable(cscope_file)
+			execute "cs add" cscope_file cscope_pre
+		endif
 	endif
 	set csverb      " cscopeverbose
 
