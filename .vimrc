@@ -101,6 +101,28 @@ endif
 Plug 'ianva/vim-youdao-translater'
 call plug#end()
 
+function! s:SetColorOfLineAndColumn()
+	let l:warningcolorfg = "NONE"
+	let l:warningcolorbg = "red"
+	let l:normalcolorfg  = "NONE"
+	let l:normalcolorbg  = "blue"
+	let l:foldedcolorfg  = "grey"
+	let l:foldedcolorbg  = "blue"
+
+	execute "highlight ColorColumn cterm=NONE ctermfg=" l:warningcolorfg " ctermbg=" l:warningcolorbg
+				\ " guifg=" l:warningcolorfg " guibg=" l:warningcolorbg
+
+	execute "highlight CursorLine cterm=NONE ctermfg=" l:normalcolorfg " ctermbg=" l:normalcolorbg
+				\ " guifg=" l:normalcolorfg " guibg=" l:normalcolorbg
+	execute "highlight CursorColumn cterm=NONE ctermfg=" l:normalcolorfg " ctermbg=" l:normalcolorbg
+				\ " guifg=" l:normalcolorfg " guibg=" l:normalcolorbg
+
+	execute "highlight Folded cterm=NONE ctermfg=" l:foldedcolorfg " ctermbg=" l:foldedcolorbg
+				\ " guifg=" l:foldedcolorfg " guibg=" l:foldedcolorbg
+	execute "highlight FoldColumn cterm=NONE ctermfg=" l:foldedcolorfg " ctermbg=" l:foldedcolorbg
+				\ " guifg=" l:foldedcolorfg " guibg=" l:foldedcolorbg
+endfunc
+
 " Tab Indent Lines
 function! TabIndentLineToggle()
 	if !exists("g:tabindentline")
@@ -148,10 +170,10 @@ function! CursorCrossMode(enable)
 		let g:cursorcrossmode = 1
 		set cursorline
 		set cursorcolumn
-		highlight CursorLine cterm=NONE ctermbg=blue ctermfg=NONE guibg=blue guifg=NONE
-		highlight CursorColumn cterm=NONE ctermbg=blue ctermfg=NONE guibg=blue guifg=NONE
+		call <SID>SetColorOfLineAndColumn()
 	endif
 endfunc
+call CursorCrossMode(0)
 
 " Add semicolon in the end of line
 function! AddSemicolonInLineTail()
@@ -247,16 +269,11 @@ set wildmenu                    " Enhanced command-line completion, possible mat
 " Colors
 set background=light
 colorscheme desert
+call <SID>SetColorOfLineAndColumn()
 
 " For Linux kernel code style
 " Disable it by set it to 0 if you hate the red column line
 set colorcolumn=80
-highlight ColorColumn cterm=NONE ctermbg=red ctermfg=NONE guibg=red guifg=NONE
-
-call CursorCrossMode(0)
-highlight CursorLine cterm=NONE ctermbg=blue ctermfg=NONE guibg=blue guifg=NONE
-highlight Folded cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
-highlight FoldColumn cterm=NONE ctermbg=blue ctermfg=grey guibg=NONE guifg=NONE
 
 " Enter source code directory, do ctags -R
 set tags=./tags;,tags
