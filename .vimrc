@@ -43,6 +43,14 @@
 "
 " Learn more vim plugin info: https://github.com/yangyangwithgnu/use_vim_as_ide
 " Learn VimScript: https://www.w3cschool.cn/vim/nckx1pu0.html
+
+" Tips about Vim:
+"  1) How to write to root permission file with normal user:
+"    :w !sudo tee %
+"                 |
+"                 \--> % means current file name
+"  2) Read shell command output to current buffer, example:
+"    :r !ls -l /
 "
 
 " Disable old-VI compatible
