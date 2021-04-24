@@ -132,23 +132,26 @@ function! s:SetColorOfLineAndColumn()
 endfunc
 
 " Tab Indent Lines
-function! TabIndentLineToggle()
-	if !exists("g:tabindentline")
-		let g:tabindentline = 0
-		set list
-		set lcs=tab:\|\ ,nbsp:%,trail:-
-	endif
-	if g:tabindentline == 1
-		let g:tabindentline = 0
+function! TabIndentLineEnable(enable)
+	let g:tabindentline = a:enable
+
+	if g:tabindentline == 0
 		set nolist
 	else
-		let g:tabindentline = 1
 		set list
 		set lcs=tab:\|\ ,nbsp:%,trail:-
 	endif
 endfunc
-let g:tabindentline = 0
-call TabIndentLineToggle()
+
+function! TabIndentLineToggle()
+	if !exists("g:tabindentline")
+		let g:tabindentline = 0
+	endif
+
+	call TabIndentLineEnable(!g:tabindentline)
+endfunc
+
+call TabIndentLineEnable(0)
 
 " Remove Trailing-Blank chars
 function! RemoveTrailingBlanks()
