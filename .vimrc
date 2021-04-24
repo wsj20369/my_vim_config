@@ -70,7 +70,7 @@ filetype plugin on
 let s:has_YouCompleteMe = 0
 let s:has_OrgMode = 0
 if has("python3")
-	let s:has_YouCompleteMe = 1
+	let s:has_YouCompleteMe = 0
 	let s:has_OrgMode = 1
 endif
 
