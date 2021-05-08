@@ -110,17 +110,25 @@ Plug 'ianva/vim-youdao-translater'
 call plug#end()
 
 function! s:SetColorOfLineAndColumn()
-	let l:warningcolorfg = "NONE"
-	let l:warningcolorbg = "red"
-	let l:normalcolorfg  = "NONE"
-	let l:normalcolorbg  = "blue"
-	let l:foldedcolorfg  = "grey"
-	let l:foldedcolorbg  = "blue"
+	let l:cursorline_style  = "underline"
+	let l:warningcolorfg    = "NONE"
+	let l:warningcolorbg    = "red"
+	let l:normalcolorfg     = "NONE"
+	let l:normalcolorbg     = "blue"
+	let l:foldedcolorfg     = "grey"
+	let l:foldedcolorbg     = "blue"
+
+	if l:cursorline_style ==? "NONE"
+		let l:cursorline_style = "NONE"
+	else
+		let l:normalcolorfg    = "NONE"
+		let l:normalcolorbg    = "NONE"
+	endif
 
 	execute "highlight ColorColumn cterm=NONE ctermfg=" l:warningcolorfg " ctermbg=" l:warningcolorbg
 				\ " guifg=" l:warningcolorfg " guibg=" l:warningcolorbg
 
-	execute "highlight CursorLine cterm=NONE ctermfg=" l:normalcolorfg " ctermbg=" l:normalcolorbg
+	execute "highlight CursorLine cterm=" l:cursorline_style " ctermfg=" l:normalcolorfg " ctermbg=" l:normalcolorbg
 				\ " guifg=" l:normalcolorfg " guibg=" l:normalcolorbg
 	execute "highlight CursorColumn cterm=NONE ctermfg=" l:normalcolorfg " ctermbg=" l:normalcolorbg
 				\ " guifg=" l:normalcolorfg " guibg=" l:normalcolorbg
