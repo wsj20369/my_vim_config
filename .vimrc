@@ -168,25 +168,20 @@ endfunc
 
 " Track cursor in Cross-Mode
 function! CursorCrossMode(enable)
-	let l:en = a:enable
-
-	if l:en == 2
-		if !exists("g:cursorcrossmode")
-			let g:cursorcrossmode = 0
-		endif
-		if g:cursorcrossmode == 1
-			let l:en = 0
-		else
-			let l:en = 1
-		endif
+	if !exists("g:cursorcrossmode")
+		let g:cursorcrossmode = 0
 	endif
 
-	if l:en == 0
-		let g:cursorcrossmode = 0
+	if a:enable == 2
+		let g:cursorcrossmode = !g:cursorcrossmode
+	else
+		let g:cursorcrossmode = a:enable
+	endif
+
+	if g:cursorcrossmode == 0
 		set cursorline
 		set nocursorcolumn
 	else
-		let g:cursorcrossmode = 1
 		set cursorline
 		set cursorcolumn
 		call <SID>SetColorOfLineAndColumn()
