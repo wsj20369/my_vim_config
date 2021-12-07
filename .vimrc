@@ -288,7 +288,7 @@ call <SID>SetColorOfLineAndColumn()
 
 " For Linux kernel code style
 " Disable it by set it to 0 if you hate the red column line
-set colorcolumn=80
+set colorcolumn=0
 
 " Enter source code directory, do ctags -R
 set tags=./tags;,tags
