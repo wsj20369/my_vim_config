@@ -279,6 +279,7 @@ set smarttab
 set cindent
 set nowrap                      " Disallow line wrap
 set wildmenu                    " Enhanced command-line completion, possible matches are shown just above the command line
+set backspace=indent,eol,start  " So, Backspace works normally
 
 " Colors
 set background=light
