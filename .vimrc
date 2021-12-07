@@ -112,7 +112,7 @@ call plug#end()
 function! s:SetColorOfLineAndColumn()
 	let l:cursorline_style  = "underline"
 	let l:warningcolorfg    = "NONE"
-	let l:warningcolorbg    = "red"
+	let l:warningcolorbg    = "darkgrey"
 	let l:normalcolorfg     = "NONE"
 	let l:normalcolorbg     = "blue"
 	let l:foldedcolorfg     = "grey"
