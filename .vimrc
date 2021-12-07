@@ -248,7 +248,7 @@ function! UpdateStatusLine()
 		endif
 	endif
 
-	let &laststatus = g:statusline_mode
+	let &laststatus = 0 "g:statusline_mode, Always close the status line
 	let &statusline = l:styles[g:statusline_style]
 endfunc
 
