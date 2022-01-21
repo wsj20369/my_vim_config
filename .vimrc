@@ -129,9 +129,9 @@ function! s:SetColorOfLineAndColumn()
 				\ " guifg=" l:warningcolorfg " guibg=" l:warningcolorbg
 
 	execute "highlight CursorLine cterm=" l:cursorline_style " ctermfg=" l:normalcolorfg " ctermbg=" l:normalcolorbg
-				\ " guifg=" l:normalcolorfg " guibg=" l:normalcolorbg
+				\ " gui=" l:cursorline_style " guifg=" l:normalcolorfg " guibg=" l:normalcolorbg
 	execute "highlight CursorColumn cterm=NONE ctermfg=" l:normalcolorfg " ctermbg=" l:normalcolorbg
-				\ " guifg=" l:normalcolorfg " guibg=" l:normalcolorbg
+				\ " gui=NONE guifg=" l:normalcolorfg " guibg=" l:normalcolorbg
 
 	execute "highlight Folded cterm=NONE ctermfg=" l:foldedcolorfg " ctermbg=" l:foldedcolorbg
 				\ " guifg=" l:foldedcolorfg " guibg=" l:foldedcolorbg
