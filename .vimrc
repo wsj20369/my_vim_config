@@ -24,7 +24,25 @@
 "     cscope -Rbq     # For userspace programs
 "     cscope -Rbqk    # For Linux kernel
 "
-" How to install "YouComleteMe":
+" Install for CoC
+"   Add plugin: Plug 'neoclide/coc.nvim',{'branch': 'release'}
+"   After plugin install, do below commands:
+"     :CocInstall coc-json coc-tsserver
+"     :CocInstall coc-marketplace
+"     ..or more commands..
+"
+"   Coc plugin needs the nodejs, Install latest nodejs:
+"     sudo apt install npm
+"     sudo npm install n -g
+"     sudo n lts
+"     sudo npm install npm -g
+"     node -v  # If not updated, please exit current shell, and do it in new shell
+"     npm -v
+"
+"   See also: https://www.codenong.com/cs105832148/
+"   See also: https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#trigger-mode-of-completion
+"
+" How to install "YouComleteMe": [It's hard to install, please use CoC]
 "  1) Use normal method...
 "    $ cd ~/.vim/plugged
 "    $ git clone https://github.com/ycm-core/YouCompleteMe.git
@@ -83,6 +101,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'majutsushi/tagbar'
 Plug 'kien/rainbow_parentheses.vim'
+Plug 'neoclide/coc.nvim',{'branch': 'release'}
 " Color Schemes
 Plug 'mrkn/mrkn256.vim'
 Plug 'w0ng/vim-hybrid'
@@ -331,6 +350,27 @@ if has("cscope")
 	" ;= to find assignments to the symbol
 	nnoremap <Leader>= :cs find a <C-R>=expand("<cword>")<CR><CR>
 endif
+
+" Coc auto complete
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <Tab> or custom key for trigger completion
+inoremap <silent><expr> <Tab>
+			\ coc#pum#visible() ? coc#pum#next(1) :
+			\ CheckBackspace() ? "\<Tab>" :
+			\ coc#refresh()
+
+" Use <Tab> and <S-Tab> to navigate the completion list:
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+
+" Use <cr> to confirm completion
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 " Org mode
 if s:has_OrgMode ==# 1
