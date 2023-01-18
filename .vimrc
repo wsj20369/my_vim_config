@@ -80,6 +80,9 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 " Leader key
 let g:mapleader = ";"
 
+" Set mouse available
+set mouse=a
+
 " Auto detect filetype
 filetype on
 filetype plugin on
