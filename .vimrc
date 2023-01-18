@@ -117,9 +117,6 @@ Plug 'tomasr/molokai'
 Plug 'NLKNguyen/papercolor-theme'
 " Plug 'wsj20369/vim-shenzhenwan'
 
-" Git helper
-Plug 'tpope/vim-fugitive'
-
 " Common helper
 Plug 'liuchengxu/vim-which-key'
 Plug 'mg979/vim-visual-multi'
