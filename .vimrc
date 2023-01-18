@@ -97,38 +97,50 @@ endif
 
 " Plugins
 call plug#begin('~/.vim/plugged')
+
 " Views
 Plug 'jlanzarotta/bufexplorer'
+
 " Programmer
 Plug 'scrooloose/nerdtree'
 Plug 'preservim/nerdcommenter'
 Plug 'majutsushi/tagbar'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'neoclide/coc.nvim',{'branch': 'release'}
+
 " Color Schemes
+" Find your favourite theme on: https://vimcolorschemes.com/
 Plug 'mrkn/mrkn256.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
+Plug 'NLKNguyen/papercolor-theme'
+" Plug 'wsj20369/vim-shenzhenwan'
+
 " Git helper
 Plug 'tpope/vim-fugitive'
+
 " Common helper
 Plug 'liuchengxu/vim-which-key'
 Plug 'mg979/vim-visual-multi'
 " Plug 'powerline/powerline'
 Plug 'skywind3000/quickmenu.vim'
+
 " Org mode
 if s:has_OrgMode ==# 1
 	Plug 'jceb/vim-orgmode'
 	Plug 'tpope/vim-speeddating'
 	Plug 'mattn/calendar-vim'
 endif
+
 " YouCompleteMe
 if s:has_YouCompleteMe ==# 1
 	Plug 'ycm-core/YouCompleteMe'
 endif
+
 " Youdao translater
 Plug 'ianva/vim-youdao-translater'
+
 call plug#end()
 
 function! s:SetColorOfLineAndColumn()
