@@ -24,21 +24,47 @@
 "     cscope -Rbq     # For userspace programs
 "     cscope -Rbqk    # For Linux kernel
 "
-" Install for CoC
+" Install for CoC, this needs the Vim >= 8.1, nodejs >= 14.14.0
 "   Add plugin: Plug 'neoclide/coc.nvim',{'branch': 'release'}
-"   After plugin install, do below commands:
-"     :CocInstall coc-json coc-tsserver
+"   After plugin installed, do below commands:
+"     :CocInstall coc-clangd
+"     :CocInstall coc-json
+"     :CocInstall coc-python
+"     :CocInstall coc-tsserver
 "     :CocInstall coc-marketplace
 "     ..or more commands..
 "
-"   Coc plugin needs the nodejs, Install latest nodejs:
-"     sudo apt install npm
-"     sudo npm install n -g
-"     sudo n lts
-"     sudo npm install npm -g
-"     node -v  # If not updated, please exit current shell, and do it in new shell
-"     npm -v
+"   C/C++ auto completion also needs the "clangd":
+"     $ sudo apt install clangd
+"     $ sudo apt install bear         # Used to generate 'compile_commands.json' for clangd
 "
+"   If you wanna read the Linux kernel code, try below commands for clangd:
+"     $ cd linux_sourcecode
+"     $ make clean                    # If need to clean last build
+"     $ make CC=clang defconfig       # Or make menuconfig...
+"     $ bear -- make CC=clang -j16    # Generate the 'compile_commands.json'
+"   Or
+"     $ make CC=clang -j16            # Or execute: $ make CC=clang ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
+"     $ scripts/clang-tools/gen_compile_commands.py
+"                                     # Generate the 'compile_commands.json', same as the 'bear ...' command
+"
+"   Then, you can edit the Linux code with auto completion.
+"   If any problem, you can see: https://stackoverflow.com/questions/70819007/can-not-use-clangd-to-read-linux-kernel-code
+"
+"   Coc plugin needs the nodejs, Install latest nodejs:
+"     $ sudo apt install npm
+"     $ sudo npm install n -g
+"     $ sudo n lts
+"     $ sudo npm install npm -g
+"     $ node -v  # If not updated, please exit current shell, and do it in new shell
+"     $ npm -v
+"
+"   Config the CoC:
+"     :CocConfig
+"        Add below line to disable the file path completion
+"	    "coc.source.file.enable": false
+"
+"   Ask question: https://gitter.im/neoclide/coc-cn
 "   See also: https://www.codenong.com/cs105832148/
 "   See also: https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#trigger-mode-of-completion
 "
