@@ -172,6 +172,8 @@ function! s:SetColorOfLineAndColumn()
 	let l:warningcolorbg    = "darkgrey"
 	let l:normalcolorfg     = "NONE"
 	let l:normalcolorbg     = "blue"
+	let l:cursorcolumnfg    = "yellow"
+	let l:cursorcolumnbg    = "darkblue"
 	let l:foldedcolorfg     = "grey"
 	let l:foldedcolorbg     = "blue"
 
@@ -187,8 +189,8 @@ function! s:SetColorOfLineAndColumn()
 
 	execute "highlight CursorLine cterm=" l:cursorline_style " ctermfg=" l:normalcolorfg " ctermbg=" l:normalcolorbg
 				\ " gui=" l:cursorline_style " guifg=" l:normalcolorfg " guibg=" l:normalcolorbg
-	execute "highlight CursorColumn cterm=NONE ctermfg=" l:normalcolorfg " ctermbg=" l:normalcolorbg
-				\ " gui=NONE guifg=" l:normalcolorfg " guibg=" l:normalcolorbg
+	execute "highlight CursorColumn cterm=NONE ctermfg=" l:cursorcolumnfg " ctermbg=" l:cursorcolumnbg
+				\ " gui=NONE guifg=" l:cursorcolumnfg " guibg=" l:cursorcolumnbg
 
 	execute "highlight Folded cterm=NONE ctermfg=" l:foldedcolorfg " ctermbg=" l:foldedcolorbg
 				\ " guifg=" l:foldedcolorfg " guibg=" l:foldedcolorbg
