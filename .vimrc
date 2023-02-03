@@ -141,7 +141,7 @@ Plug 'w0ng/vim-hybrid'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'NLKNguyen/papercolor-theme'
-" Plug 'wsj20369/vim-shenzhenwan'
+Plug 'wsj20369/vim-shenzhenwan'
 
 " Common helper
 Plug 'liuchengxu/vim-which-key'
@@ -555,6 +555,7 @@ call g:quickmenu#append('desert',                   'colorscheme desert', '')
 call g:quickmenu#append('blue',                     'colorscheme blue', '')
 call g:quickmenu#append('hybrid',                   'colorscheme hybrid', '')
 call g:quickmenu#append('molokai',                  'colorscheme molokai', '')
+call g:quickmenu#append('shenzhenwan',              'colorscheme shenzhenwan', '')
 
 " Rainbow Parentheses
 " Below codes copied from https://github.com/kien/rainbow_parentheses.vim
