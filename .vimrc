@@ -341,9 +341,14 @@ set wildmenu                    " Enhanced command-line completion, possible mat
 set backspace=indent,eol,start  " So, Backspace works normally
 
 " Colors
-set background=light
+set background=dark
+set t_Co=256
 colorscheme desert
 call <SID>SetColorOfLineAndColumn()
+
+" Colors for CoC plugin
+highlight SignColumn ctermbg=black
+highlight CocErrorSign ctermfg=red ctermbg=darkblue
 
 " For Linux kernel code style
 " Disable it by set it to 0 if you hate the red column line
