@@ -24,6 +24,14 @@
 "     cscope -Rbq     # For userspace programs
 "     cscope -Rbqk    # For Linux kernel
 "
+" Install for Fuzzy Finder
+"   fzf: Install:
+"     sudo apt install fzf
+"   ag: Install
+"     sudo apt install silversearcher-ag
+"
+"   Support commands: Files, Ag, Colors
+"
 " Install for CoC, this needs the Vim >= 8.1, nodejs >= 14.14.0
 "   Add plugin: Plug 'neoclide/coc.nvim',{'branch': 'release'}
 "   After plugin installed, do below commands:
@@ -133,6 +141,10 @@ Plug 'preservim/nerdcommenter'
 Plug 'majutsushi/tagbar'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'neoclide/coc.nvim',{'branch': 'release'}
+
+" Fuzzy Finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Color Schemes
 " Find your favourite theme on: https://vimcolorschemes.com/
@@ -454,6 +466,10 @@ nnoremap <Leader>p :tprevious<CR>
 
 " C code edit
 nnoremap <Leader><Leader>z :call AddSemicolonInLineTail()<CR>
+
+" Fuzzy Finder
+nnoremap <C-p> :Files<CR>
+nnoremap <C-g> :Ag<CR>
 
 " Grep...
 nnoremap <Leader>g :set operatorfunc=<SID>GrepOperator<CR>g@
