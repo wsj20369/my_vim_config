@@ -469,7 +469,7 @@ nnoremap <Leader><Leader>z :call AddSemicolonInLineTail()<CR>
 
 " Fuzzy Finder
 nnoremap <C-p> :Files<CR>
-nnoremap <C-g> :Ag<CR>
+nnoremap <C-s> :Ag<CR>
 
 " Grep...
 nnoremap <Leader>g :set operatorfunc=<SID>GrepOperator<CR>g@
