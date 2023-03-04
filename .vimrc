@@ -141,6 +141,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'majutsushi/tagbar'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'neoclide/coc.nvim',{'branch': 'release'}
+Plug 'airblade/vim-gitgutter'
 
 " Fuzzy Finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
