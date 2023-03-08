@@ -468,12 +468,17 @@ nnoremap <Leader>p :tprevious<CR>
 " C code edit
 nnoremap <Leader><Leader>z :call AddSemicolonInLineTail()<CR>
 
-" Fuzzy Finder
+" Fuzzy Finder, find files
 nnoremap <C-p> :Files<CR>
-nnoremap <C-s> :Ag<CR>
+" Search in current buffer
+nnoremap <C-s> :BLines<CR>
 nnoremap <Leader>t :BTags<CR>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
+" Search in all opened buffers
+nnoremap <Leader>e :Lines<CR>
+" Search in current directory
+nnoremap <Leader>s :Ag<CR>
 
 " Grep...
 nnoremap <Leader>g :set operatorfunc=<SID>GrepOperator<CR>g@
