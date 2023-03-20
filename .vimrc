@@ -456,6 +456,7 @@ nnoremap <Leader>w :w<CR>
 
 nnoremap <Leader>f :ToggleBufExplorer<CR>
 nnoremap <Leader>d :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 nnoremap <Leader>\ :call TabIndentLineToggle()<CR>
 
