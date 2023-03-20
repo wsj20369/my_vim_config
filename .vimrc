@@ -162,6 +162,7 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'mg979/vim-visual-multi'
 " Plug 'powerline/powerline'
 Plug 'skywind3000/quickmenu.vim'
+Plug 'mhinz/vim-startify'
 
 " Org mode
 if s:has_OrgMode ==# 1
