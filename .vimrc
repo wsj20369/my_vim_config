@@ -358,7 +358,7 @@ set backspace=indent,eol,start  " So, Backspace works normally
 " Colors
 set background=dark
 set t_Co=256
-colorscheme desert
+colorscheme molokai
 call <SID>SetColorOfLineAndColumn()
 
 " Colors for CoC plugin
