@@ -176,8 +176,8 @@ if s:has_YouCompleteMe ==# 1
 	Plug 'ycm-core/YouCompleteMe'
 endif
 
-" Youdao translater
-Plug 'ianva/vim-youdao-translater'
+" Language Translater
+Plug 'voldikss/vim-translator'
 
 call plug#end()
 
@@ -615,12 +615,18 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" Youdao translater
-vnoremap <silent> <C-c>y :<C-u>Ydv<CR>
-nnoremap <silent> <C-c>y :<C-u>Ydc<CR>
-vnoremap <silent> <leader>yy :<C-u>Ydv<CR>
-nnoremap <silent> <leader>yy :<C-u>Ydc<CR>
-noremap <leader>yd :<C-u>Yde<CR>
+" Language Translater
+let g:translator_target_lang='zh'
+let g:translator_source_lang='en'
+let g:translator_default_engines=['bing', 'youdao']
+let g:translator_proxy_url=''
+let g:translator_history_enable=v:true
+let g:translator_window_type='popup'
+let g:translator_window_max_width=0.6
+let g:translator_window_max_height=0.6
+" Display translation in a window
+nnoremap <silent> <C-c>y :<C-u>TranslateW<CR>
+vnoremap <silent> <C-c>y :<C-u>'<,'>TranslateW<CR>
 
 " Which Key
 set timeout timeoutlen=500
