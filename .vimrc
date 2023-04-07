@@ -159,7 +159,7 @@ Plug 'ghifarit53/tokyonight-vim'
 
 " Common helper
 Plug 'liuchengxu/vim-which-key'
-Plug 'mg979/vim-visual-multi'
+Plug 'mg979/vim-visual-multi' " vim-visual-multi needs vim-8
 " Plug 'powerline/powerline'
 Plug 'skywind3000/quickmenu.vim'
 Plug 'mhinz/vim-startify'
