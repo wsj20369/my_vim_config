@@ -115,7 +115,7 @@ autocmd BufWritePost $MYVIMRC source $MYVIMRC
 let g:mapleader = ";"
 
 " Set mouse available
-set mouse=a
+" set mouse=a
 
 " Auto detect filetype
 filetype on
