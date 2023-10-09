@@ -24,6 +24,16 @@
 "     cscope -Rbq     # For userspace programs
 "     cscope -Rbqk    # For Linux kernel
 "
+" How to browse Linux kernel source code           <--------------
+"   1. Vim 9.0 or above is better
+"   2. Install 'bear' to generate the compile_commands.json
+"   3. Under Linux kernel:
+"      $ make defconfig
+"      $ make tags cscope
+"      $ bear -- make -j16 CC=clang
+"   4. The LSP config file 'compile_commands.json' should be ready
+"   5. Let's start a journey to the Linux kernel
+"
 " Install for Fuzzy Finder
 "   fzf: Install:
 "     sudo apt install fzf
