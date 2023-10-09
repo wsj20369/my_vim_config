@@ -159,6 +159,7 @@ Plug 'junegunn/fzf.vim'
 
 " Color Schemes
 " Find your favourite theme on: https://vimcolorschemes.com/
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'mrkn/mrkn256.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'altercation/vim-colors-solarized'
@@ -166,6 +167,10 @@ Plug 'tomasr/molokai'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'wsj20369/vim-shenzhenwan'
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'sainnhe/everforest'
+Plug 'morhetz/gruvbox'
+Plug 'pineapplegiant/spaceduck'
+Plug 'joshdick/onedark.vim'
 
 " Common helper
 Plug 'liuchengxu/vim-which-key'
@@ -369,7 +374,7 @@ set backspace=indent,eol,start  " So, Backspace works normally
 " Colors
 set background=dark
 set t_Co=256
-colorscheme molokai
+colorscheme spaceduck           " More: molokai, onedark, darkblue, spaceduck, space-vim-dark
 call <SID>SetColorOfLineAndColumn()
 
 " Colors for CoC plugin
@@ -591,11 +596,16 @@ call g:quickmenu#append('Git Blame',                'Gblame', '')
 call g:quickmenu#append('# Color Scheme', '')
 call g:quickmenu#append('default',                  'colorscheme default', '')
 call g:quickmenu#append('desert',                   'colorscheme desert', '')
-call g:quickmenu#append('blue',                     'colorscheme blue', '')
-call g:quickmenu#append('hybrid',                   'colorscheme hybrid', '')
+call g:quickmenu#append('spaceduck',                'colorscheme spaceduck', '')
 call g:quickmenu#append('molokai',                  'colorscheme molokai', '')
-call g:quickmenu#append('shenzhenwan',              'colorscheme shenzhenwan', '')
+call g:quickmenu#append('blue',                     'colorscheme blue', '')
+call g:quickmenu#append('darkblue',                 'colorscheme darkblue', '')
+call g:quickmenu#append('onedark',                  'colorscheme onedark', '')
+call g:quickmenu#append('gruvbox',                  'colorscheme gruvbox', '')
+call g:quickmenu#append('hybrid',                   'colorscheme hybrid', '')
 call g:quickmenu#append('tokyonight',               'colorscheme tokyonight', '')
+call g:quickmenu#append('shenzhenwan',              'colorscheme shenzhenwan', '')
+call g:quickmenu#append('space-vim-dark',           'colorscheme space-vim-dark', '')
 
 " Rainbow Parentheses
 " Below codes copied from https://github.com/kien/rainbow_parentheses.vim
