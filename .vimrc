@@ -144,6 +144,8 @@ call plug#begin('~/.vim/plugged')
 
 " Views
 Plug 'jlanzarotta/bufexplorer'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " Programmer
 Plug 'scrooloose/nerdtree'
@@ -502,10 +504,45 @@ nnoremap <Leader>s :Ag<CR>
 nnoremap <Leader>g :set operatorfunc=<SID>GrepOperator<CR>g@
 vnoremap <Leader>g :<c-u>call <SID>GrepOperator(visualmode())<CR>
 
-" Status Line
-call UpdateStatusLine()
-nnoremap <Leader><Leader>s :call UpdateStatusLine()<CR>
-nnoremap <Leader><Leader>S :set laststatus=0<CR>
+" Status Line & Tab Line
+"  Use :help airline to get help
+set laststatus=2                                         " Show status line always, 2 = Alway, 1 = More than 1, 0 = Never
+let g:airline#extensions#tabline#enabled = 1             " Enable airline tabline
+let g:airline#extensions#tabline#tab_min_count = 2       " Minimum of 2 tabs needed to display the tabline
+let g:airline#extensions#tabline#show_buffers = 0        " Do NOT show buffers in Tab line
+let g:airline#extensions#tabline#show_splits = 0         " Disable the buffer name on the right of the Tab line
+let g:airline#extensions#tabline#show_tab_count = 1      " Show Tab numbers on the right
+let g:airline#extensions#tabline#show_tab_nr = 0         " Disable tab numbers
+let g:airline#extensions#tabline#show_tab_type = 0       " Disables the weird orange arrow on the tabline
+let g:airline#extensions#tabline#show_close_button = 0   " Remove 'X' at the end of the tabline
+let g:airline#extensions#tabline#tabs_label = ''         " Can put text here like BUFFERS to denote buffers (I clear it so nothing is shown)
+let g:airline#extensions#tabline#buffers_label = ''      " Can put text here like TABS to denote tabs (I clear it so nothing is shown)
+let g:airline#extensions#tabline#fnamemod = ':t'         " Disable file paths in the tab
+let g:airline_section_b = '%{getcwd()}'                  " In section B of the status line display the CWD
+let g:airline_powerline_fonts = 1                        " Show powerline font
+let g:airline_theme='apprentice'                         " Set status line theme to 'murmur'
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_left_alt_sep = '❯'
+let g:airline_right_sep = '◀'
+let g:airline_right_alt_sep = '❮'
+let g:airline_symbols.linenr = 'L'
+let g:airline_symbols.branch = '⎇'
+
+nnoremap <silent> tt :tabnext<CR>                        " tt -> Go to next Tab, if reached last one, go to the first Tab
+nnoremap <silent> TT :tabprevious<CR>                    " TT -> Go to previous Tab, if reached first one, go to the last Tab
+nnoremap <silent> <Leader>1 :1tabnext<CR>
+nnoremap <silent> <Leader>2 :2tabnext<CR>
+nnoremap <silent> <Leader>3 :3tabnext<CR>
+nnoremap <silent> <Leader>4 :4tabnext<CR>
+nnoremap <silent> <Leader>5 :5tabnext<CR>
+nnoremap <silent> <Leader>6 :6tabnext<CR>
+nnoremap <silent> <Leader>7 :7tabnext<CR>
+nnoremap <silent> <Leader>8 :8tabnext<CR>
+nnoremap <silent> <Leader>9 :9tabnext<CR>
 
 " Gvim: Toggle Menu and Toolbar
 set guioptions-=m
