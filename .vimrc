@@ -532,8 +532,10 @@ let g:airline_right_alt_sep = '❮'
 let g:airline_symbols.linenr = 'L'
 let g:airline_symbols.branch = '⎇'
 
-nnoremap <silent> tt :tabnext<CR>                        " tt -> Go to next Tab, if reached last one, go to the first Tab
-nnoremap <silent> TT :tabprevious<CR>                    " TT -> Go to previous Tab, if reached first one, go to the last Tab
+" tt -> Go to next Tab, if reached last one, go to the first Tab
+" TT -> Go to previous Tab, if reached first one, go to the last Tab
+nnoremap <silent> tt :tabnext<CR>
+nnoremap <silent> TT :tabprevious<CR>
 nnoremap <silent> <Leader>1 :1tabnext<CR>
 nnoremap <silent> <Leader>2 :2tabnext<CR>
 nnoremap <silent> <Leader>3 :3tabnext<CR>
