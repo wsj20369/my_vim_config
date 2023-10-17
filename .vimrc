@@ -508,9 +508,9 @@ vnoremap <Leader>g :<c-u>call <SID>GrepOperator(visualmode())<CR>
 "  Use :help airline to get help
 set laststatus=2                                         " Show status line always, 2 = Alway, 1 = More than 1, 0 = Never
 let g:airline#extensions#tabline#enabled = 1             " Enable airline tabline
-let g:airline#extensions#tabline#tab_min_count = 2       " Minimum of 2 tabs needed to display the tabline
+let g:airline#extensions#tabline#tab_min_count = 1       " Minimum of 1 tabs needed to display the tabline
 let g:airline#extensions#tabline#show_buffers = 0        " Do NOT show buffers in Tab line
-let g:airline#extensions#tabline#show_splits = 0         " Disable the buffer name on the right of the Tab line
+let g:airline#extensions#tabline#show_splits = 1         " Enable the buffer name on the right
 let g:airline#extensions#tabline#show_tab_count = 1      " Show Tab numbers on the right
 let g:airline#extensions#tabline#show_tab_nr = 0         " Disable tab numbers
 let g:airline#extensions#tabline#show_tab_type = 0       " Disables the weird orange arrow on the tabline
@@ -529,7 +529,7 @@ let g:airline_left_sep = '▶'
 let g:airline_left_alt_sep = '❯'
 let g:airline_right_sep = '◀'
 let g:airline_right_alt_sep = '❮'
-let g:airline_symbols.linenr = 'L'
+let g:airline_symbols.linenr = ' L'
 let g:airline_symbols.branch = '⎇'
 
 " tt -> Go to next Tab, if reached last one, go to the first Tab
