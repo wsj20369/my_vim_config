@@ -139,6 +139,14 @@ if has("python3")
 	let s:has_OrgMode = 1
 endif
 
+" Plugin Manager: vim-plug
+" Automatically downloads vim-plug if not found.
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync
+endif
+
 " Plugins
 call plug#begin('~/.vim/plugged')
 
