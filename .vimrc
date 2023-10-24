@@ -461,6 +461,16 @@ inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
+" Coc: code navigation
+"  Thanks to: CyrilWongMy <https://juejin.cn/post/6968807773366976549>
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
+
+" Symbol renaming.
+nnoremap <leader>rn <Plug>(coc-rename)
+
 " Org mode
 if s:has_OrgMode ==# 1
 	let g:org_agenda_files=['~/org/index.org']
