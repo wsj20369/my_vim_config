@@ -82,6 +82,9 @@
 "        Add below line to disable the file path completion
 "	    "coc.source.file.enable": false
 "
+"        Add below line to disable the CocInlayHintParameter
+"	    "inlayHint.enable": false
+"
 "   Ask question: https://gitter.im/neoclide/coc-cn
 "   See also: https://www.codenong.com/cs105832148/
 "   See also: https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources#trigger-mode-of-completion
