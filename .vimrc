@@ -471,6 +471,11 @@ nnoremap <silent> gr <Plug>(coc-references)
 " Symbol renaming.
 nnoremap <leader>rn <Plug>(coc-rename)
 
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
+
 " Org mode
 if s:has_OrgMode ==# 1
 	let g:org_agenda_files=['~/org/index.org']
